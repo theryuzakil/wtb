@@ -1,3 +1,22 @@
+<?php
+if(isset($_POST['submit']))
+{
+    $name=$_POST['name'];
+    $email=$_POST['email'];
+    $subject="OTP Verify";
+    $message=$_POST['message'];
+    $to=$_POST['email'];
+    $headers="From: $name<$email>";
+    if(mail($to, $subject, $message, $headers))
+    {
+        echo "Email Sent";
+    }
+    else
+    {
+        echo "Error";
+    }
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +56,7 @@
     <link href="../lib/select2/css/select2.min.css" rel="stylesheet">
 
     <!-- Bracket CSS -->
-    <link rel="stylesheet" href="../css/bracket.css">
+    <link rel="stylesheet" href="bracket.css">
 	
 
 
@@ -49,7 +68,7 @@
         <div class="signin-logo tx-center tx-28 tx-bold tx-inverse"><span class="tx-normal">[</span> Where Is To <span class="tx-info">Buy</span> <span class="tx-normal">]</span></div>
         <div class="tx-center mg-b-60">SignUp Panel for Vendor</div>
 
-    <form action="signup_db.php" method="POST" >
+    <form action="" method="POST" >
         <div class="form-group">
           <input type="email" class="form-control" name="email" placeholder="Enter your Email">
         </div><!-- form-group -->
@@ -57,7 +76,7 @@
           <input type="password" class="form-control" name="password" placeholder="Enter your password">
         </div><!-- form-group -->
         <div class="form-group">
-          <input type="text" class="form-control" name="shop_name" placeholder="Enter your Shop Name">
+          <input type="text" class="form-control" name="name" placeholder="Enter your Name">
         </div>
         <div class="form-group tx-12">By clicking the Sign Up button below, you agreed to our privacy policy and terms of use of our website.</div>
         <!-- <button type="submit" class="btn btn-info btn-block" value="submit" >Sign Up</button> -->
