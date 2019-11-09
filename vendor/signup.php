@@ -1,22 +1,4 @@
-<?php
-if(isset($_POST['submit']))
-{
-    $name=$_POST['name'];
-    $email=$_POST['email'];
-    $subject="OTP Verify";
-    $message=$_POST['message'];
-    $to=$_POST['email'];
-    $headers="From: $name<$email>";
-    if(mail($to, $subject, $message, $headers))
-    {
-        echo "Email Sent";
-    }
-    else
-    {
-        echo "Error";
-    }
-}
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
